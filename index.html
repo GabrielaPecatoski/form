@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Comportamental - Professores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Perfil Comportamental - Professores</h1>
+        <p>Este formulário tem como objetivo mapear o perfil comportamental com base na teoria DISC. Através dele, buscamos identificar seus pontos fortes e compreender as áreas que podem ser desenvolvidas, promovendo autoconhecimento e potencializando seu crescimento pessoal e profissional.</p>
+        
+        <!-- Mensagem de erro -->
+        <p id="mensagemErro" style="color: red; display: none;"></p>
+
+        <form id="formulario" action="https://api.sheetmonkey.io/form/29kGRwqvsgJfg6tcBoLGSk" method="post" onsubmit="return validarFormulario()">
+            <!-- Página 1 -->
+            <div class="pagina" id="pagina1">
+                <label for="nome">Nome completo *</label>
+                <input type="text" id="nome" name="nome">
+
+                <label for="dataNascimento">Data de Nascimento *</label>
+                <input type="date" id="dataNascimento" name="dataNascimento">
+
+                <label for="colegiado">Colegiado *</label>
+                <input type="text" id="colegiado" name="colegiado">
+
+                <label for="email">E-mail *</label>
+                <input type="text" id="email" name="email">
+
+                <button type="button" onclick="proximaPagina(2)">Próximo</button>
+            </div>
+
+            <!-- Página 2 -->
+            <div class="pagina" id="pagina2" style="display:none;">
+                <label for="tempoAtuacao">1. Tempo de atuação como docente na universidade (em anos): *</label>
+                <select id="tempoAtuacao" name="tempoAtuacao">
+                    <option value="">Selecione</option>
+                    <option value="Menos de 1 ano">Menos de 1 ano</option>
+                    <option value="1 a 3 anos">1 a 3 anos</option>
+                    <option value="4 a 7 anos">4 a 7 anos</option>
+                </select>
+
+                <label for="motivacoes">2. Quais são suas maiores motivações como docente? *</label>
+                <textarea id="motivacoes" name="motivacoes"></textarea>
+
+                <label for="decisoes">3. Como você reage em situações em que precisa tomar decisões rápidas e importantes? *</label>
+                <select id="decisoes" name="decisoes">
+                    <option value="">Selecione</option>
+                    <option value="Analiso os prós e contras antes de decidir">Analiso os prós e contras antes de decidir</option>
+                    <option value="Tomo a decisão rapidamente para resolver a situação">Tomo a decisão rapidamente para resolver a situação</option>
+                    <option value="Prefiro consultar outras pessoas antes de decidir">Prefiro consultar outras pessoas antes de decidir</option>
+                    <option value="Evito tomar decisões sem ter certeza absoluta">Evito tomar decisões sem ter certeza absoluta</option>
+                </select>
+
+                <label for="reunioes">4. Em uma reunião com outros professores, como você costuma interagir? *</label>
+                <select id="reunioes" name="reunioes">
+                    <option value="">Selecione</option>
+                    <option value="Gosto de liderar e motivar o grupo">Gosto de liderar e motivar o grupo</option>
+                    <option value="Prefiro observar e contribuir de forma pontual">Prefiro observar e contribuir de forma pontual</option>
+                    <option value="Participo ativamente, mas deixo os outros liderarem">Participo ativamente, mas deixo os outros liderarem</option>
+                    <option value="Compartilho ideias novas e incentivo discussões">Compartilho ideias novas e incentivo discussões</option>
+                </select>
+
+                <button type="button" onclick="anteriorPagina(1)">Voltar</button>
+                <button type="button" onclick="proximaPagina(3)">Próximo</button>
+            </div>
+
+            <!-- Página 3 -->
+            <div class="pagina" id="pagina3" style="display:none;">
+                <label for="mudancas">5. Quando mudanças inesperadas afetam sua rotina de aulas ou planejamento, como você se sente? *</label>
+                <select id="mudancas" name="mudancas">
+                    <option value="">Selecione</option>
+                    <option value="Consigo me adaptar, mas prefiro ter estabilidade">Consigo me adaptar, mas prefiro ter estabilidade</option>
+                    <option value="Fico desconfortável e levo um tempo para me ajustar">Fico desconfortável e levo um tempo para me ajustar</option>
+                    <option value="Lido bem com mudanças e as vejo como oportunidades">Lido bem com mudanças e as vejo como oportunidades</option>
+                    <option value="Busco maneiras de restabelecer o equilíbrio rapidamente">Busco maneiras de restabelecer o equilíbrio rapidamente</option>
+                </select>
+
+                <label for="teste">9. Responda o teste referente ao link abaixo, enviando resultado na questão 10 - Copiar e colar com as porcentagens. *</label>
+                <a href="https://www.mrcoach.com.br/teste-perfil-comportamental-disc.php" target="_blank">Acesse o teste</a>
+
+                <label for="resultadoTeste">10. Coloque a resposta do teste abaixo, com a porcentagem de cada perfil e a descrição dos pontos fortes e de melhoria: *</label>
+                <textarea id="resultadoTeste" name="resultadoTeste"></textarea>
+
+                <button type="button" onclick="anteriorPagina(2)">Voltar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="exemplo">
+        <p>Exemplo: Nome: João da Silva | E-mail: joao.silva@email.com</p>
+    </div>
+
+    <script>
+        function proximaPagina(pagina) {
+            var paginaAtual = document.querySelector(".pagina:not([style*='display: none'])");
+            var camposObrigatorios = paginaAtual.querySelectorAll("[required]"); // Seleciona todos os campos obrigatórios da página atual
+            var formularioValido = true;
+
+            // Verifica se todos os campos obrigatórios estão preenchidos
+            for (var i = 0; i < camposObrigatorios.length; i++) {
+                if (camposObrigatorios[i].value.trim() === "") {
+                    formularioValido = false;
+                    camposObrigatorios[i].style.borderColor = "red"; // Marca os campos obrigatórios não preenchidos
+                } else {
+                    camposObrigatorios[i].style.borderColor = ""; // Remove a marcação do campo preenchido
+                }
+            }
+
+            // Se todos os campos estiverem preenchidos, esconde a página atual e exibe a próxima
+            if (formularioValido) {
+                paginaAtual.style.display = "none";
+                document.getElementById("pagina" + pagina).style.display = "block";
+            } else {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+            }
+        }
+
+        function anteriorPagina(pagina) {
+            var paginaAtual = document.querySelector(".pagina:not([style*='display: none'])");
+
+            // Esconde a página atual e exibe a anterior
+            paginaAtual.style.display = "none";
+            document.getElementById("pagina" + pagina).style.display = "block";
+        }
+    </script>
+</body>
+</html>
