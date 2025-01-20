@@ -1,23 +1,24 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, #f9f5fa, #e2c3d8);
+    background: linear-gradient(45deg, #f5f7fa, #c3cfe2);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow-x: hidden; 
+    overflow-x: hidden; /* Impede rolagem horizontal */
+}
 
 .container {
-    max-height: 90%;
-    width: 60%;
+    width: 100%;
+    max-width: 500px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: auto; 
+    box-sizing: border-box;
 }
 
 h1 {
@@ -54,32 +55,70 @@ textarea {
 }
 
 button {
-    background-color: #b134db;
+    background-color: #3498db;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    width: 20%;
+    width: 100%;
     box-sizing: border-box;
     font-size: 1.1rem;
     transition: background-color 0.3s, transform 0.2s ease-in-out;
-    margin-top: 15px; 
+    margin-top: 15px; /* Espaçamento entre os botões */
 }
 
 button:hover {
-    background-color: #8f2093;
-    transform: scale(1.05); 
+    background-color: #2980b9;
+    transform: scale(1.05); /* Efeito de aumento de tamanho */
+}
 
 button:active {
     transform: scale(1);
 }
 
+button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button-container button {
+    width: 48%; /* Os botões vão ocupar quase metade da largura */
+    font-size: 1rem;
+}
+
 /* Responsividade */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    label, p {
+        font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         width: 95%;
-        padding: 15px;
+        padding: 12px;
     }
 
     h1 {
@@ -113,14 +152,14 @@ button:active {
     }
 
     label, p {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     input[type="text"],
     input[type="date"],
     select,
     textarea {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     button {
@@ -139,7 +178,7 @@ button:active {
     }
 
     label, p {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     input[type="text"],
@@ -150,6 +189,6 @@ button:active {
     }
 
     button {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 }
