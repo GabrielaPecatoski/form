@@ -1,60 +1,155 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(45deg, #f9f5fa, #e2c3d8);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
+    overflow-x: hidden; 
 
 .container {
-    background-color: white;
+    max-height: 90%;
+    width: 60%;
+    margin: 20px auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 600px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: auto; 
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
     font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
 }
 
-input, select, textarea {
+input[type="text"],
+input[type="date"],
+select,
+textarea {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0 15px;
+    padding: 12px;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #b134db;
     color: white;
+    padding: 12px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    width: 20%;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    margin-top: 15px; 
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #8f2093;
+    transform: scale(1.05); 
+
+button:active {
+    transform: scale(1);
 }
 
-.exemplo {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #888;
-    font-size: 14px;
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    label, p {
+        font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    label, p {
+        font-size: 0.8rem;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        width: 100%;
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    label, p {
+        font-size: 0.7rem;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
 }
