@@ -11,23 +11,22 @@
         <h1>Perfil Comportamental - Professores</h1>
         <p>Este formulário tem como objetivo mapear o perfil comportamental com base na teoria DISC. Através dele, buscamos identificar seus pontos fortes e compreender as áreas que podem ser desenvolvidas, promovendo autoconhecimento e potencializando seu crescimento pessoal e profissional.</p>
         
-        <!-- Mensagem de erro -->
         <p id="mensagemErro" style="color: red; display: none;"></p>
 
         <form id="formulario" action="https://api.sheetmonkey.io/form/29kGRwqvsgJfg6tcBoLGSk" method="post" onsubmit="return validarFormulario()">
             <!-- Página 1 -->
             <div class="pagina" id="pagina1">
                 <label for="nome">Nome completo *</label>
-                <input type="text" id="nome" name="nome">
+                <input type="text" id="nome" name="nome" required>
 
                 <label for="dataNascimento">Data de Nascimento *</label>
-                <input type="date" id="dataNascimento" name="dataNascimento">
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
 
                 <label for="colegiado">Colegiado *</label>
-                <input type="text" id="colegiado" name="colegiado">
+                <input type="text" id="colegiado" name="colegiado" required>
 
                 <label for="email">E-mail *</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" required>
 
                 <button type="button" onclick="proximaPagina(2)">Próximo</button>
             </div>
@@ -35,7 +34,7 @@
             <!-- Página 2 -->
             <div class="pagina" id="pagina2" style="display:none;">
                 <label for="tempoAtuacao">1. Tempo de atuação como docente na universidade (em anos): *</label>
-                <select id="tempoAtuacao" name="tempoAtuacao">
+                <select id="tempoAtuacao" name="tempoAtuacao" required>
                     <option value="">Selecione</option>
                     <option value="Menos de 1 ano">Menos de 1 ano</option>
                     <option value="1 a 3 anos">1 a 3 anos</option>
@@ -43,10 +42,10 @@
                 </select>
 
                 <label for="motivacoes">2. Quais são suas maiores motivações como docente? *</label>
-                <textarea id="motivacoes" name="motivacoes"></textarea>
+                <textarea id="motivacoes" name="motivacoes" required></textarea>
 
                 <label for="decisoes">3. Como você reage em situações em que precisa tomar decisões rápidas e importantes? *</label>
-                <select id="decisoes" name="decisoes">
+                <select id="decisoes" name="decisoes" required>
                     <option value="">Selecione</option>
                     <option value="Analiso os prós e contras antes de decidir">Analiso os prós e contras antes de decidir</option>
                     <option value="Tomo a decisão rapidamente para resolver a situação">Tomo a decisão rapidamente para resolver a situação</option>
@@ -55,7 +54,7 @@
                 </select>
 
                 <label for="reunioes">4. Em uma reunião com outros professores, como você costuma interagir? *</label>
-                <select id="reunioes" name="reunioes">
+                <select id="reunioes" name="reunioes" required>
                     <option value="">Selecione</option>
                     <option value="Gosto de liderar e motivar o grupo">Gosto de liderar e motivar o grupo</option>
                     <option value="Prefiro observar e contribuir de forma pontual">Prefiro observar e contribuir de forma pontual</option>
@@ -70,7 +69,7 @@
             <!-- Página 3 -->
             <div class="pagina" id="pagina3" style="display:none;">
                 <label for="mudancas">5. Quando mudanças inesperadas afetam sua rotina de aulas ou planejamento, como você se sente? *</label>
-                <select id="mudancas" name="mudancas">
+                <select id="mudancas" name="mudancas" required>
                     <option value="">Selecione</option>
                     <option value="Consigo me adaptar, mas prefiro ter estabilidade">Consigo me adaptar, mas prefiro ter estabilidade</option>
                     <option value="Fico desconfortável e levo um tempo para me ajustar">Fico desconfortável e levo um tempo para me ajustar</option>
@@ -78,39 +77,61 @@
                     <option value="Busco maneiras de restabelecer o equilíbrio rapidamente">Busco maneiras de restabelecer o equilíbrio rapidamente</option>
                 </select>
 
-                <label for="teste">9. Responda o teste referente ao link abaixo, enviando resultado na questão 10 - Copiar e colar com as porcentagens. *</label>
+                <label for="normas">6. Como você lida com normas institucionais e processos administrativos? *</label>
+                <select id="normas" name="normas" required>
+                    <option value="">Selecione</option>
+                    <option value="Sigo todas as regras rigorosamente">Sigo todas as regras rigorosamente</option>
+                    <option value="Sigo as regras, mas busco formas de torná-las mais eficientes">Sigo as regras, mas busco formas de torná-las mais eficientes</option>
+                    <option value="Sigo as regras apenas quando vejo necessidade">Sigo as regras apenas quando vejo necessidade</option>
+                    <option value="Prefiro criar métodos próprios para atender às demandas">Prefiro criar métodos próprios para atender às demandas</option>
+                </select>
+
+                <label for="conflitos">7. Quando surgem conflitos no ambiente de trabalho, qual é sua abordagem mais comum? *</label>
+                <select id="conflitos" name="conflitos" required>
+                    <option value="">Selecione</option>
+                    <option value="Enfrento o problema diretamente para resolver rapidamente">Enfrento o problema diretamente para resolver rapidamente</option>
+                    <option value="Tento mediar e encontrar um meio-termo">Tento mediar e encontrar um meio-termo</option>
+                    <option value="Evito o confronto sempre que possível">Evito o confronto sempre que possível</option>
+                    <option value="Antecipo as possíveis consequências antes de agir">Antecipo as possíveis consequências antes de agir</option>
+                </select>
+
+                <label for="motivacaoDocente">8. O que mais te motiva em seu trabalho como docente universitário? *</label>
+                <select id="motivacaoDocente" name="motivacaoDocente" required>
+                    <option value="">Selecione</option>
+                    <option value="Alcançar resultados e superar desafios">Alcançar resultados e superar desafios</option>
+                    <option value="Conectar-se com alunos e colegas">Conectar-se com alunos e colegas</option>
+                    <option value="Previsibilidade e segurança">Previsibilidade e segurança</option>
+                    <option value="Trabalhar com estruturas claras e atenção aos detalhes">Trabalhar com estruturas claras e atenção aos detalhes</option>
+                </select>
+
+                <label for="teste">9. Responda o teste referente ao link abaixo, enviando o resultado na questão *
                 <a href="https://www.mrcoach.com.br/teste-perfil-comportamental-disc.php" target="_blank">Acesse o teste</a>
+            </label>
 
                 <label for="resultadoTeste">10. Coloque a resposta do teste abaixo, com a porcentagem de cada perfil e a descrição dos pontos fortes e de melhoria: *</label>
-                <textarea id="resultadoTeste" name="resultadoTeste"></textarea>
+                <textarea id="resultadoTeste" name="resultadoTeste" required></textarea>
 
                 <button type="button" onclick="anteriorPagina(2)">Voltar</button>
-                <button type="submit">Enviar</button>
+                <button type="submit" class="enviar" onclick="exibirMensagem()">Enviar</button>
             </div>
         </form>
-    </div>
-
-    <div class="exemplo">
-        <p>Exemplo: Nome: João da Silva | E-mail: joao.silva@email.com</p>
     </div>
 
     <script>
         function proximaPagina(pagina) {
             var paginaAtual = document.querySelector(".pagina:not([style*='display: none'])");
-            var camposObrigatorios = paginaAtual.querySelectorAll("[required]"); // Seleciona todos os campos obrigatórios da página atual
+            var camposObrigatorios = paginaAtual.querySelectorAll("[required]");
             var formularioValido = true;
 
-            // Verifica se todos os campos obrigatórios estão preenchidos
-            for (var i = 0; i < camposObrigatorios.length; i++) {
-                if (camposObrigatorios[i].value.trim() === "") {
+            camposObrigatorios.forEach(campo => {
+                if (campo.value.trim() === "") {
                     formularioValido = false;
-                    camposObrigatorios[i].style.borderColor = "red"; // Marca os campos obrigatórios não preenchidos
+                    campo.style.borderColor = "red";
                 } else {
-                    camposObrigatorios[i].style.borderColor = ""; // Remove a marcação do campo preenchido
+                    campo.style.borderColor = "";
                 }
-            }
+            });
 
-            // Se todos os campos estiverem preenchidos, esconde a página atual e exibe a próxima
             if (formularioValido) {
                 paginaAtual.style.display = "none";
                 document.getElementById("pagina" + pagina).style.display = "block";
@@ -121,8 +142,6 @@
 
         function anteriorPagina(pagina) {
             var paginaAtual = document.querySelector(".pagina:not([style*='display: none'])");
-
-            // Esconde a página atual e exibe a anterior
             paginaAtual.style.display = "none";
             document.getElementById("pagina" + pagina).style.display = "block";
         }
