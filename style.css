@@ -12,13 +12,18 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    overflow-x: hidden; /* Impede rolagem horizontal */
+    overflow-x: hidden;
 }
 
+img {
+    width: 150px;
+    margin-left: 200px;
+    
+}
 .container {
     width: 100%;
-    max-width: 600px; /* Aumentado para maior largura */
-    padding: 30px; /* Aumentado o padding para mais respiro */
+    max-width: 600px; 
+    padding: 30px; 
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -30,21 +35,21 @@ body {
 h1 {
     text-align: center;
     color: #2c3e50;
-    font-size: 2rem; /* Aumentado o tamanho */
-    margin-bottom: 30px; /* Aumentado o espaçamento */
+    font-size: 2rem; 
+    margin-bottom: 30px; 
 }
 
 p {
     font-size: 1rem;
     color: #7f8c8d;
     line-height: 1.6;
-    margin-bottom: 20px; /* Aumentado o espaço abaixo do parágrafo */
+    margin-bottom: 20px; 
 }
 
 label {
     font-weight: bold;
     display: block;
-    margin-bottom: 10px; /* Aumentado o espaçamento */
+    margin-bottom: 10px; 
     color: #34495e;
 }
 
@@ -54,7 +59,7 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    margin-bottom: 20px; /* Aumentado o espaçamento entre os campos */
+    margin-bottom: 20px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
@@ -142,6 +147,11 @@ button-container button {
     select,
     textarea {
         font-size: 1rem;
+    }
+
+    img{
+        margin-left: 90px;
+        width: 120px;
     }
 
     button {
