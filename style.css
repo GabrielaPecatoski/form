@@ -17,8 +17,10 @@ body {
 
 img {
     width: 150px;
-    margin-left: 190px;
+    display: block;
+    margin: 0 auto;
 }
+
 .container {
     width: 100%;
     max-width: 600px; 
@@ -147,9 +149,9 @@ button-container button {
         font-size: 1rem;
     }
 
-    img{
-        margin-left: 200px;
+    img {
         width: 160px;
+        margin: 0 auto;
     }
 
     button {
@@ -188,8 +190,8 @@ button-container button {
     }
 
     img {
-        width: 150px;
-        margin-left: 114px;
+        width: 150px; 
+        margin: 0 auto;
     }
 
     button {
@@ -220,11 +222,6 @@ button-container button {
     select,
     textarea {
         font-size: 0.9rem;
-    }
-
-    img {
-        width: 150px;
-        margin-left: 95px;
     }
 
     button {
