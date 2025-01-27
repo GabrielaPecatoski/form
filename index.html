@@ -105,14 +105,28 @@
                     <option value="Trabalhar com estruturas claras e atenção aos detalhes">Trabalhar com estruturas claras e atenção aos detalhes</option>
                 </select>
 
-                <label for="teste">9. Responda o teste referente ao link abaixo, enviando o resultado na questão *
-                <a href="https://www.mrcoach.com.br/teste-perfil-comportamental-disc.php" target="_blank">Acesse o teste</a>
-            </label>
-
-                <label for="resultadoTeste">10. Coloque a resposta do teste abaixo, com a porcentagem de cada perfil e a descrição dos pontos fortes e de melhoria: *</label>
-                <textarea id="resultadoTeste" name="resultadoTeste" required></textarea>
-
                 <button type="button" onclick="anteriorPagina(2)">Voltar</button>
+                <button type="button" onclick="proximaPagina(4)">Próximo</button>
+            </div>
+
+            <!-- Página 4 -->
+            <div class="pagina" id="pagina4" style="display:none;">
+                <label for="bom">9. No que você é bom? *</label>
+                <textarea id="bom" name="bom" required></textarea>
+
+                <label for="gosta">10. O que você gosta no que faz? *</label>
+                <textarea id="gosta" name="gosta" required></textarea>
+
+                <label for="sentirUtil">11. O que faz você se sentir mais útil? *</label>
+                <textarea id="sentirUtil" name="sentirUtil" required></textarea>
+
+                <label for="sentirAvanco">12. O que faz você sentir que está avançando? *</label>
+                <textarea id="sentirAvanco" name="sentirAvanco" required></textarea>
+
+                <label for="relacionamento">13. Como você se relaciona com os outros? *</label>
+                <textarea id="relacionamento" name="relacionamento" required></textarea>
+
+                <button type="button" onclick="anteriorPagina(3)">Voltar</button>
                 <button type="submit" class="enviar" onclick="exibirMensagem()">Enviar</button>
             </div>
         </form>
@@ -136,8 +150,6 @@
             if (formularioValido) {
                 paginaAtual.style.display = "none";
                 document.getElementById("pagina" + pagina).style.display = "block";
-            } else {
-                alert("Por favor, preencha todos os campos obrigatórios.");
             }
         }
 
@@ -145,6 +157,34 @@
             var paginaAtual = document.querySelector(".pagina:not([style*='display: none'])");
             paginaAtual.style.display = "none";
             document.getElementById("pagina" + pagina).style.display = "block";
+        }
+
+        function validarFormulario() {
+            var mensagemErro = document.getElementById("mensagemErro");
+            mensagemErro.style.display = "none";
+
+            var camposObrigatorios = document.querySelectorAll("[required]");
+            var formularioValido = true;
+
+            camposObrigatorios.forEach(campo => {
+                if (campo.value.trim() === "") {
+                    formularioValido = false;
+                    campo.style.borderColor = "red";
+                } else {
+                    campo.style.borderColor = "";
+                }
+            });
+
+            if (!formularioValido) {
+                mensagemErro.style.display = "block";
+                mensagemErro.innerText = "Preencha todos os campos obrigatórios antes de enviar.";
+            }
+
+            return formularioValido;
+        }
+
+        function exibirMensagem() {
+            alert("Formulário enviado com sucesso!");
         }
     </script>
 </body>
